@@ -1,5 +1,3 @@
-好的，這是一份為您的 Minecraft 伺服器管理腳本設計的專業 README 文件。這份文件使用了 Markdown 格式，您可以將其儲存為 `README.md` 檔案，與您的 `mc_manager.sh` 腳本放在一起。
-
 ---
 
 # Minecraft Server Manager (多功能 Minecraft 伺服器管理腳本)
