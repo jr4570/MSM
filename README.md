@@ -1,120 +1,130 @@
----
-
-# Minecraft 伺服器管理器腳本 (Minecraft Server Manager Script)
-
-一個功能強大且全面的 Bash 腳本，用於在 Linux 伺服器上輕鬆部署、管理和維護多個 Minecraft 伺服器。
-
-A powerful and comprehensive Bash script for easily deploying, managing, and maintaining multiple Minecraft servers on a Linux server.
+好的，這是一份為您的 Minecraft 伺服器管理腳本設計的專業 README 文件。這份文件使用了 Markdown 格式，您可以將其儲存為 `README.md` 檔案，與您的 `mc_manager.sh` 腳本放在一起。
 
 ---
 
-## ✨ 功能特色 (Features)
+# Minecraft Server Manager (多功能 Minecraft 伺服器管理腳本)
 
-*   **🌐 多語言介面 (Multi-Language Interface)**: 支援繁體中文和英文，啟動時可自由切換。
-*   **✅ 依賴自動檢查 (Dependency Checker)**: 自動檢測 `Java`, `curl`, `jq` 等必要工具，並提示使用 sudo 自動安裝。
-*   **🗂️ 多伺服器管理 (Multi-Server Management)**: 在單一腳本內建立和管理多個獨立的伺服器實例。
-*   **⚙️ 多版本支援 (Multiple Server Types)**:
-    *   **PaperMC**: 自動獲取版本列表並下載，為插件提供最佳效能。
-    *   **Fabric**: 自動安裝 Fabric Loader，輕鬆管理模組。
-    *   **自訂檔案**: 支援使用您自己的 `server.jar` 或伺服器 `.zip` 包。
-*   **🎮 直覺的控制台 (Intuitive Control Panel)**:
-    *   使用 `screen` 進行安全的背景運作。
-    *   輕鬆啟動、停止、進入伺服器後台。
-    *   直接從選單發送指令（如 `op` 玩家）。
-*   **🧩 插件/模組管理 (Plugin/Mod Management)**:
-    *   整合 [Modrinth API](https://modrinth.com/)，可直接搜尋並安裝與伺服器版本相容的插件和模組。
-    *   **智慧提示**: 建立 Fabric 伺服器時，會檢查並提示安裝必備的 Fabric API。
-*   **🔒 合規與安全 (Compliance & Security)**:
-    *   **EULA 合規**: 在建立伺服器時，會引導使用者閱讀並親自同意 Minecraft EULA。
-    *   **安全停止**: 使用 `stop` 指令正常關閉伺服器，確保世界資料被完整保存。
-*   **💾 備份與還原 (Backup & Restore)**:
-    *   一鍵備份伺服器世界檔案。
-    *   可從現有備份列表中選擇並還原。
-*   **📝 伺服器設定 (Server Configuration)**: 提供互動式介面，方便修改 `server.properties` 中的常用設定。
+一個強大且易於使用的單檔案 Bash 腳本，旨在簡化在 Linux 伺服器上部署和管理多個 Minecraft 伺服器的所有流程。無論您是初學者還是有經驗的管理員，此腳本都能幫助您節省時間並避免繁瑣的手動操作。
 
----
+[English Readme](./README_EN.md) (可選，如果您想提供英文版本)
 
-## 📋 事前準備 (Prerequisites)
+## ✨ 功能亮點 (Features)
 
-在執行此腳本之前，請確保您的系統滿足以下條件：
+*   **🌐 多語言介面**: 啟動時可選擇繁體中文或英文介面。
+*   **🧩 依賴自動處理**: 自動檢測 `java`, `curl`, `jq`, `screen` 等必要工具，並提示引導式安裝。
+*   **⚙️ 一鍵伺服器部署**:
+    *   支援主流伺服器核心：**Paper**, **Fabric**, **Vanilla**。
+    *   可使用**自訂 JAR 檔案**或 ZIP 檔案。
+    *   自動從官方 API 獲取並下載最新或指定的 Minecraft 版本。
+*   **🗂️ 多實例管理**: 在單一主機上輕鬆創建和管理多個完全獨立的伺服器實例。
+*   **📦 插件/模組管理**:
+    *   直接連接 **Modrinth API** 進行搜索、選擇和安裝插件/模組。
+    *   輕鬆列出和移除已安裝的項目。
+    *   針對 Fabric 伺服器，會自動提示安裝 Fabric API。
+*   **🕹️ 全方位伺服器控制**:
+    *   在背景 (`screen`) 啟動伺服器。
+    *   平滑停止伺服器（帶有倒數計時警告）。
+    *   隨時附加到伺服器控制台以手動輸入指令。
+*   **🔧 伺服器配置**: 通過菜單輕鬆修改 `server.properties` 中的常用設定，如 `online-mode`, `MOTD`, `max-players` 等。
+*   **🛡️ 備份與還原**: 一鍵為您的伺服器（包含世界、插件等所有檔案）創建 `tar.gz` 壓縮備份，並可從備份列表中選擇還原。
+*   **🧑‍🤝‍🧑 玩家管理**: 方便地查看在線玩家列表或授予玩家 OP 權限。
+*   **📜 引導式 EULA 同意**: 部署流程會引導您閱讀並親自同意 Minecraft EULA，完全合規。
+*   **⬆️ 伺服器核心升級**: 自動檢查 Paper 伺服器是否有新版本，並提供一鍵升級功能。
+*   **✅ 使用者友好**: 全數字菜單式操作，減少輸入錯誤，並提供清晰的錯誤提示和引導。
 
-1.  **作業系統 (Operating System)**:
-    *   一個基於 Debian 的發行版 (如 Ubuntu, Debian)。
-    *   或一個基於 Red Hat 的發行版 (如 CentOS, Fedora, RHEL)。
-2.  **使用者權限 (User Permissions)**:
-    *   需要 `sudo` 權限，以便腳本可以為您自動安裝缺少的依賴工具。
-3.  **核心依賴 (Core Dependencies)**:
-    *   腳本會嘗試自動安裝以下工具，但若能預先安裝會更順利：
-        *   `java` (需要 **Java 21** 或更高版本)
-        *   `curl`
-        *   `jq` (用於處理 API 回應)
-        *   `screen` (用於背景執行伺服器)
-        *   `wget`
-        *   `tar`
-        *   `unzip`
+## ⚙️ 環境需求 (Requirements)
 
----
+*   一個基於 **Linux** 的作業系統 (例如：Debian, Ubuntu, CentOS, Fedora 等)。
+*   **Bash Shell**。
+*   **Sudo/Root 權限** (僅在首次運行、需要自動安裝依賴工具時需要)。
+*   網路連接 (用於下載伺服器檔案、插件和依賴)。
 
-## 🚀 使用說明 (Usage)
+本腳本會自動檢查以下依賴，若缺失會提示安裝：
+*   **Java 17 或更高版本** (現代 Minecraft 伺服器的基本要求，腳本會對版本進行檢查)。
+*   `curl`
+*   `jq`
+*   `screen`
 
-下載或複製腳本後，在您的終端機中執行以下指令：
+## 🚀 快速開始 (Quick Start)
 
-#### 1. 儲存檔案
-將腳本程式碼儲存為 `mc_manager.sh` 檔案。
+1.  **下載腳本**
+    將腳本內容複製到您的伺服器中，並儲存為 `mc_manager.sh`。
+    或
+        打開您的終端，並執行以下命令：
+    ```bash
+    wgwt 
+    ```
 
-```bash
-# 例如，使用 wget 從網路上下載
-# wget [腳本的URL] -O mc_manager.sh
+3.  **賦予執行權限**
+    打開您的終端，並執行以下命令：
+    ```bash
+    chmod +x mc_manager.sh
+    ```
 
-# 或者，使用文字編輯器 (如 nano) 貼上程式碼
-# nano mc_manager.sh
+4.  **運行腳本**
+    執行腳本以開始：
+    ```bash
+    ./mc_manager.sh
+    ```
+
+## 📖 使用教學 (Usage Walkthrough)
+
+### 1. 首次運行
+腳本第一次啟動時，會：
+*   讓您選擇操作語言。
+*   檢查所有必要的依賴工具。如果發現有工具未安裝，會詢問您是否要授權腳本嘗試自動安裝。
+
+### 2. 主選單
+您會看到一個清晰的主選單：
+*   `1. 部署新伺服器`: 創建一個全新的伺服器實例。
+*   `2. 管理現有伺服器`: 管理您已經創建的所有伺服器。
+*   `3. 退出`: 離開腳本。
+
+### 3. 部署新伺服器
+選擇部署後，腳本將引導您完成以下步驟：
+1.  **命名伺服器**: 例如 `my_survival_world`。
+2.  **設置記憶體**: 分別輸入最小 (Xms) 和最大 (Xmx) 記憶體，例如 `2G`, `4G`。
+3.  **選擇類型**: 從 Paper, Fabric, Vanilla, 或自訂 JAR 中選擇。
+4.  **選擇版本**: 腳本會從網路獲取可用的 Minecraft 版本供您選擇。
+5.  **同意 EULA**: 腳本會顯示官方 EULA 連結，您必須輸入 `yes` 以繼續。
+完成後，所有檔案將被下載和設置妥當。
+
+### 4. 管理現有伺服器
+選擇此選項後，您會看到您已建立的伺服器列表。選擇其中一個，即可進入該伺服器的專屬管理菜單，您可以：
+*   **啟動/停止/進入控制台**: 進行基本的伺服器操作。
+*   **插件/模組管理**: 搜索和安裝來自 Modrinth 的新內容。
+*   **備份/還原**: 保護您的伺服器數據安全。
+*   **設定 server.properties**: 快速調整伺服器規則。
+*   **刪除伺服器**: **此操作不可逆**，會刪除伺服器的所有檔案。
+
+## 📁 檔案結構說明 (File Structure)
+
+所有伺服器都存放在 `~/mc_servers/` 目錄下，每個伺服器都是一個獨立的子目錄：
+
+```
+/home/user/mc_servers/
+└── my_survival_world/      # 您的伺服器實例名稱
+    ├── world/              # 世界檔案
+    ├── plugins/            # 插件目錄 (Paper/Spigot)
+    ├── mods/               # 模組目錄 (Fabric)
+    ├── backups/            # 備份檔案存放地
+    │   └── backup-2023-10-27_10-30-00.tar.gz
+    ├── server.properties   # 伺服器設定檔
+    ├── eula.txt            # EULA 同意檔案
+    ├── paper-1.20.2-313.jar # 伺服器核心檔案 (範例)
+    ├── start.sh            # 啟動腳本
+    ├── latest.log          # 伺服器日誌
+    ├── .server_type        # 腳本使用的元數據 (記錄伺服器類型)
+    ├── .mc_version         # 腳本使用的元數據 (記錄 MC 版本)
+    └── .jar_name           # 腳本使用的元數據 (記錄核心檔案名)
 ```
 
-#### 2. 賦予執行權限
-此指令讓腳本檔案可以被執行。
+## ⚠️ 注意事項 (Disclaimer)
 
-```bash
-chmod +x mc_manager.sh
-```
+*   此腳本由 AI 輔助生成，儘管經過多次測試，仍可能存在未知的錯誤。
+*   在執行「還原」或「刪除」等高風險操作前，請務必確認您的選擇，並建議您有額外的手動備份。
+*   作者不對任何因使用此腳本可能導致的數據遺失負責。
 
-#### 3. 執行腳本
-開始使用 Minecraft 伺服器管理器！
+## 📜 授權 (License)
 
-```bash
-./mc_manager.sh
-```
-
-腳本啟動後，您將看到語言選擇畫面，之後便可進入主選單開始操作。
-
----
-
-## 📁 檔案結構 (File Structure)
-
-所有由本腳本建立的伺服器都將存放於您的家目錄下的 `mc_servers` 資料夾中，結構如下：
-
-```
-~/
-└── mc_servers/
-    ├── my_paper_server/      # 您的第一個伺服器
-    │   ├── server.jar
-    │   ├── eula.txt
-    │   ├── server.properties
-    │   ├── plugins/          # Paper 伺服器的插件目錄
-    │   ├── logs/
-    │   ├── backups/          # 備份檔案存放處
-    │   ├── .mc_version       # 記錄 MC 版本
-    │   └── .server_type      # 記錄伺服器類型 (paper, fabric, etc.)
-    │
-    └── my_fabric_server/     # 您的第二個伺服器
-        ├── server.jar        # (這是 fabric-server-launch.jar)
-        ├── mods/             # Fabric 伺服器的模組目錄
-        └── ...
-```
-
----
-
-## ⚠️ 免責聲明 (Disclaimer)
-
-*   本腳本旨在簡化伺服器管理流程，請自行承擔使用風險。
-*   **使用者有最終責任閱讀並遵守 Minecraft 的終端使用者授權協議 (EULA)**。腳本會在建立伺服器時提示您同意 EULA，請務必了解其內容。
-*   在執行還原或刪除等破壞性操作前，請務必確認您的選擇，並建議手動保留一份額外備份。
+本專案採用 [MIT License](https://opensource.org/licenses/MIT) 授權。
