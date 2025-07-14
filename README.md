@@ -58,13 +58,13 @@
 3.  **賦予執行權限**
     打開您的終端，並執行以下命令：
     ```bash
-    chmod +x mc_manager.sh
+    chmod +x msm.sh
     ```
 
 4.  **運行腳本**
     執行腳本以開始：
     ```bash
-    ./mc_manager.sh
+    ./msm.sh
     ```
 
 ## 📖 使用教學 (Usage Walkthrough)
@@ -124,7 +124,3 @@
 *   此腳本由 AI 輔助生成，儘管經過多次測試，仍可能存在未知的錯誤。
 *   在執行「還原」或「刪除」等高風險操作前，請務必確認您的選擇，並建議您有額外的手動備份。
 *   作者不對任何因使用此腳本可能導致的數據遺失負責。
-
-## 📜 授權 (License)
-
-本專案採用 [MIT License](https://opensource.org/licenses/MIT) 授權。
