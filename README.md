@@ -47,7 +47,9 @@
 
 1.  **下載腳本**
     將腳本內容複製到您的伺服器中，並儲存為 `msm.sh`。
+
     或
+    
     打開您的終端，並執行以下命令：
     ```bash
     wget https://github.com/jr4570/Minecraft-Server-Management-Script/releases/download/MSM_V2.0/msm.sh
