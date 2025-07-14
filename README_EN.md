@@ -1,5 +1,3 @@
-Of course. Here is a professional English version of the README file, formatted in Markdown. You can save this as `README_EN.md` in the same directory as your script.
-
 ---
 
 # Minecraft Server Manager
@@ -48,11 +46,13 @@ This script will automatically check for the following dependencies and offer to
 ## 🚀 Quick Start
 
 1.  **Download the Script**
-    Copy the script's content to your server and save it as `mc_manager.sh`.
+    Copy the script's content to your server and save it as `msm.sh`.
+    
     or
-        Open your terminal and run the following command:
+
+    Open your terminal and run the following command:
     ```bash
-    wget
+    wget https://github.com/jr4570/Minecraft-Server-Management-Script/releases/download/MSM_V2.0/msm.sh
     ```
 3.  **Grant Execution Permissions**
     Open your terminal and run the following command:
