@@ -4,7 +4,7 @@
 
 一個強大且易於使用的單檔案 Bash 腳本，旨在簡化在 Linux 伺服器上部署和管理多個 Minecraft 伺服器的所有流程。無論您是初學者還是有經驗的管理員，此腳本都能幫助您節省時間並避免繁瑣的手動操作。
 
-[English Readme](./README_EN.md) (可選，如果您想提供英文版本)
+[English Readme](./README_EN.md) 
 
 ## ✨ 功能亮點 (Features)
 
