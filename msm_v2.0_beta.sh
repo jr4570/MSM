@@ -3,7 +3,7 @@
 #=================================================================================
 # Minecraft Server Manager Script
 # Author: AI Assistant
-# Version: 1.1.4 - Critical syntax fix in attach_to_console. Reformatted all single-line functions for readability and stability.
+# Version: 2.1.4 - Critical syntax fix in attach_to_console. Reformatted all single-line functions for readability and stability.
 #=================================================================================
 
 # --- Script Configuration ---
