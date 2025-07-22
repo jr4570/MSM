@@ -52,7 +52,7 @@ This script will automatically check for the following dependencies and offer to
 
     Open your terminal and run the following command:
     ```bash
-    wget https://github.com/jr4570/Minecraft-Server-Management-Script/releases/download/MSM_V2.0/msm.sh
+    curl -o msm.sh  https://github.com/jr4570/Minecraft-Server-Management-Script/releases/download/MSM_V2.0/msm_v2.1.4.sh
     ```
 3.  **Grant Execution Permissions**
     Open your terminal and run the following command:
