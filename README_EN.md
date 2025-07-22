@@ -1,6 +1,4 @@
----
-
-# Minecraft Server Manager
+# MSM-CLI
 
 A powerful and easy-to-use, single-file Bash script designed to streamline the entire process of deploying and managing multiple Minecraft servers on a Linux machine. Whether you are a beginner or an experienced administrator, this script will help you save time and avoid tedious manual configurations.
 
