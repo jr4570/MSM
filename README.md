@@ -46,25 +46,25 @@
 ## 🚀 快速開始 (Quick Start)
 
 1.  **下載腳本**
-    將腳本內容複製到您的伺服器中，並儲存為 `msm.sh`。
+    將腳本內容複製到您的伺服器中，並儲存為 `msm_v2.1.4.sh`。
 
     或
     
     打開您的終端，並執行以下命令：
     ```bash
-    curl -o msm.sh  https://github.com/jr4570/Minecraft-Server-Management-Script/releases/download/MSM_V2.0/msm_v2.1.4.sh
+    wget https://github.com/jr4570/Minecraft-Server-Management-Script/releases/download/MSM_V2.0/msm_v2.1.4.sh
     ```
 
 3.  **賦予執行權限**
     打開您的終端，並執行以下命令：
     ```bash
-    chmod +x msm.sh
+    chmod +x msm_v2.1.4.sh
     ```
 
 4.  **運行腳本**
     執行腳本以開始：
     ```bash
-    ./ msm.sh
+    ./msm_v2.1.4.sh
     ```
 
 ## 📖 使用教學 (Usage Walkthrough)
