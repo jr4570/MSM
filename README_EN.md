@@ -46,24 +46,24 @@ This script will automatically check for the following dependencies and offer to
 ## 🚀 Quick Start
 
 1.  **Download the Script**
-    Copy the script's content to your server and save it as `msm.sh`.
+    Copy the script's content to your server and save it as `msm_v2.1.4.sh`.
     
     or
 
     Open your terminal and run the following command:
     ```bash
-    curl -o msm.sh  https://github.com/jr4570/Minecraft-Server-Management-Script/releases/download/MSM_V2.0/msm_v2.1.4.sh
+    wget https://github.com/jr4570/Minecraft-Server-Management-Script/releases/download/MSM_V2.0/msm_v2.1.4.sh
     ```
 3.  **Grant Execution Permissions**
     Open your terminal and run the following command:
     ```bash
-    chmod +x msm.sh
+    chmod +x msm_v2.1.4.sh
     ```
 
 4.  **Run the Script**
     Execute the script to begin:
     ```bash
-    ./msm.sh
+    ./msm_v2.1.4.sh
     ```
 
 ## 📖 Usage Walkthrough
