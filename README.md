@@ -52,7 +52,7 @@
     
     打開您的終端，並執行以下命令：
     ```bash
-    wget https://github.com/jr4570/Minecraft-Server-Management-Script/releases/download/MSM_V2.0/msm_v2.1.4.sh
+    wget https://github.com/jr4570/MSM-CLI/releases/download/MSM_V2.0/msm_v2.1.4.sh
     ```
 
 3.  **賦予執行權限**
